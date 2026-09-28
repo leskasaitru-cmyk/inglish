@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Времена английского языка — 10 класс</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #0a0616;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #e8e6f0;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* ============ ЗВЁЗДНЫЙ ФОН ============ */
+  .stars-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  /* Слой 1 — мелкие звёзды */
+  .stars-bg::before {
+    content: '';
+    position: absolute;
+    width: 2px; height: 2px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow:
+      100px 100px #fff, 250px 50px #fff, 400px 180px #fff, 550px 90px #fff,
+      700px 250px #fff, 850px 120px #fff, 1000px 60px #fff, 1150px 200px #fff,
+      1300px 100px #fff, 1450px 300px #fff, 200px 350px #fff, 500px 400px #fff,
+      800px 320px #fff, 1100px 380px #fff, 1400px 450px #fff, 50px 500px #fff,
+      350px 550px #fff, 650px 600px #fff, 950px 520px #fff, 1250px 580px #fff,
+      1500px 400px #fff, 150px 700px #fff, 450px 750px #fff, 750px 680px #fff,
+      1050px 720px #fff, 1350px 800px #fff, 90px 900px #fff, 390px 950px #fff,
+      690px 880px #fff, 990px 920px #fff, 1290px 1000px #fff, 100px 1100px #fff,
+      500px 1150px #fff, 900px 1080px #fff, 1300px 1200px #fff, 200px 1300px #fff,
+      600px 1250px #fff, 1000px 1350px #fff, 1400px 1400px #fff, 300px 1500px #fff,
+      700px 1550px #fff, 1100px 1480px #fff, 80px 1650px #fff, 480px 1700px #fff,
+      880px 1620px #fff, 1280px 1750px #fff, 180px 1850px #fff, 580px 1800px #fff,
+      980px 1900px #fff, 1380px 1850px #fff, 280px 2000px #fff, 680px 1950px #fff,
+      1080px 2050px #fff, 1480px 2100px #fff, 380px 2200px #fff, 780px 2150px #fff;
+    animation: twinkle 3s ease-in-out infinite alternate;
+  }
+  
+  /* Слой 2 — крупные звёзды */
+  .stars-bg::after {
+    content: '';
+    position: absolute;
+    width: 3px; height: 3px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow:
+      200px 150px #b8c0ff, 600px 250px #b8c0ff, 1000px 180px #b8c0ff,
+      1400px 320px #b8c0ff, 300px 500px #b8c0ff, 800px 450px #b8c0ff,
+      1200px 550px #b8c0ff, 100px 800px #b8c0ff, 550px 750px #b8c0ff,
+      1000px 850px #b8c0ff, 1450px 900px #b8c0ff, 250px 1050px #b8c0ff,
+      700px 1000px #b8c0ff, 1150px 1150px #b8c0ff, 1500px 1200px #b8c0ff,
+      400px 1300px #b8c0ff, 900px 1400px #b8c0ff, 1350px 1450px #b8c0ff,
+      200px 1600px #b8c0ff, 750px 1550px #b8c0ff, 1250px 1700px #b8c0ff,
+      550px 1850px #b8c0ff, 1050px 1900px #b8c0ff, 1450px 1950px #b8c0ff;
+    animation: twinkle 4s ease-in-out infinite alternate;
+    animation-delay: 1s;
+  }
+  
+  @keyframes twinkle {
+    0% { opacity: 0.4; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.2); }
+  }
+  
+  /* Слой 3 — мерцающие крупные точки */
+  .stars-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+  
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 12px rgba(184, 192, 255, 0.5);
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+  
+  /* Плавающие светящиеся ORB */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+    animation: float 16s ease-in-out infinite;
+  }
+  
+  .orb1 { width: 400px; height: 400px; background: #667eea; top: -100px; left: -100px; }
+  .orb2 { width: 350px; height: 350px; background: #9b59b6; bottom: -100px; right: -100px; animation-delay: 4s; }
+  .orb3 { width: 300px; height: 300px; background: #4a6fa5; top: 40%; left: 50%; animation-delay: 8s; }
+  
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, -50px) scale(1.1); }
+    66% { transform: translate(-30px, 30px) scale(0.95); }
+  }
+  
+  /* ============ HEADER ============ */
+  header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    padding: 30px 15px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  header h1 {
+    font-size: clamp(1.6em, 5vw, 2.6em);
+    margin-bottom: 12px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #f0f0ff 0%, #b8c0ff 50%, #d4a5f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+    word-wrap: break-word;
+  }
+  
+  header p {
+    font-size: clamp(0.9em, 2.5vw, 1.1em);
+    opacity: 0.85;
+    color: #c5c0e0;
+    padding: 0 10px;
+  }
+  
+  header p.tagline {
+    margin-top: 10px;
+    font-size: clamp(0.8em, 2vw, 0.95em);
+    color: #9d95c9;
+    letter-spacing: 0.5px;
+  }
+  
+  .refresh-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+  }
+  
+  .refresh-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #5a6fd8, #9b59b6);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: clamp(0.85em, 2.5vw, 0.95em);
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 8px 25px rgba(90, 111, 216, 0.4);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .refresh-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(155, 89, 182, 0.5);
+  }
+  
+  .refresh-btn:active { transform: translateY(-1px) scale(0.99); }
+  
+  .refresh-btn .icon {
+    font-size: 1.2em;
+    display: inline-block;
+    transition: transform 0.5s ease;
+  }
+  
+  .refresh-btn:hover .icon { transform: rotate(360deg); }
+  
+  /* ============ CONTAINER ============ */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: clamp(16px, 3vw, 25px);
+    position: relative;
+    z-index: 2;
+    perspective: 1500px;
+  }
+  
+  .card {
+    background: rgba(38, 32, 56, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: clamp(18px, 4vw, 28px);
+    box-shadow: 
+      0 20px 50px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+      0 0 60px rgba(90, 111, 216, 0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease;
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(90deg, #667eea, #9b59b6, #4a6fa5) 1;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, transparent 50%, rgba(155, 89, 182, 0.08) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  
+  .card:hover::before { opacity: 1; }
+  
+  @media (hover: hover) {
+    .card:hover {
+      transform: translateY(-10px) rotateX(2deg) rotateY(-2deg) scale(1.01);
+      box-shadow: 
+        0 30px 70px rgba(0, 0, 0, 0.5),
+        0 0 80px rgba(90, 111, 216, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    }
+  }
+  
+  .card::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%);
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transition: transform 0.8s ease;
+    pointer-events: none;
+  }
+  
+  .card:hover::after {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+  
+  .card h2 {
+    color: #b8c0ff;
+    font-size: clamp(1.3em, 4vw, 1.6em);
+    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 0 20px rgba(184, 192, 255, 0.3);
+    word-wrap: break-word;
+  }
+  
+  .card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 100%; height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #667eea, #9b59b6, transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+  
+  .card:hover h2::after { transform: scaleX(1); }
+  
+  .card .subtitle {
+    color: #8a82b0;
+    font-size: clamp(0.8em, 2vw, 0.9em);
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  
+  .section {
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .section h3 {
+    font-size: clamp(0.9em, 2.5vw, 1em);
+    color: #c5a5e8;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    flex-wrap: wrap;
+  }
+  
+  .formula {
+    background: rgba(30, 25, 45, 0.7);
+    padding: clamp(10px, 3vw, 14px) clamp(12px, 3vw, 16px);
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    font-family: 'Courier New', monospace;
+    font-size: clamp(0.78em, 2.2vw, 0.95em);
+    margin-bottom: 10px;
+    line-height: 2;
+    color: #d5d0e8;
+    transition: transform 0.3s ease;
+    overflow-x: auto;
+    word-wrap: break-word;
+  }
+  
+  .formula:hover { transform: translateX(4px); }
+  
+  .formula .pos { color: #7dd68a; font-weight: 700; }
+  .formula .neg { color: #f08080; font-weight: 700; }
+  .formula .qst { color: #7eb8f0; font-weight: 700; }
+  .formula b { color: #e8e0ff; }
+  
+  .marker {
+    display: inline-block;
+    background: linear-gradient(135deg, #2a2440, #3d3358);
+    color: #f0e5ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: clamp(0.72em, 2vw, 0.85em);
+    margin: 4px 5px 4px 0;
+    font-weight: 600;
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(184, 192, 255, 0.15) inset;
+    transition: all 0.25s ease;
+    cursor: default;
+    border: 1px solid rgba(184, 192, 255, 0.2);
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .marker::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(184, 192, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .marker:hover::before { left: 100%; }
+  
+  .marker:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: linear-gradient(135deg, #3d3358, #52436e);
+    color: #ffffff;
+    box-shadow: 
+      0 8px 20px rgba(155, 89, 182, 0.4),
+      0 0 0 1px rgba(184, 192, 255, 0.35) inset;
+    border-color: rgba(184, 192, 255, 0.5);
+  }
+  
+  .example {
+    padding: clamp(9px, 2.5vw, 12px) clamp(11px, 3vw, 16px);
+    background: rgba(30, 25, 45, 0.7);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: clamp(0.82em, 2.3vw, 0.95em);
+    line-height: 1.5;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    border-left: 3px solid rgba(102, 126, 234, 0.4);
+    word-wrap: break-word;
+  }
+  
+  .example:hover {
+    transform: translateX(6px) scale(1.01);
+    border-left-color: #667eea;
+    background: rgba(35, 30, 52, 0.85);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+  }
+  
+  .example .en { 
+    color: #f0ecff; 
+    font-weight: 600;
+    display: block;
+    letter-spacing: 0.2px;
+    word-wrap: break-word;
+  }
+  
+  .example .ru { 
+    color: #a09ac0; 
+    font-size: 0.9em; 
+    display: block; 
+    margin-top: 4px;
+    font-style: italic;
+  }
+  
+  .tip {
+    background: rgba(40, 70, 45, 0.4);
+    border-left: 4px solid #4caf50;
+    padding: clamp(10px, 3vw, 12px) clamp(12px, 3vw, 16px);
+    border-radius: 10px;
+    font-size: clamp(0.8em, 2.2vw, 0.9em);
+    margin-top: 12px;
+    color: #d5e5d8;
+    transition: transform 0.3s ease;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+  
+  .tip:hover { transform: translateX(4px); }
+  .tip strong { color: #7dd68a; }
+  
+  .warn {
+    background: rgba(70, 50, 25, 0.4);
+    border-left: 4px solid #ff9800;
+    padding: clamp(10px, 3vw, 12px) clamp(12px, 3vw, 16px);
+    border-radius: 10px;
+    font-size: clamp(0.8em, 2.2vw, 0.9em);
+    margin-top: 12px;
+    color: #f0dfc5;
+    transition: transform 0.3s ease;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+  
+  .warn:hover { transform: translateX(4px); }
+  .warn strong { color: #ffb74d; }
+  
+  .quiz-btn {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
+    padding: clamp(12px, 3vw, 14px);
+    background: linear-gradient(135deg, #5a6fd8 0%, #7d5db8 50%, #9b59b6 100%);
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: clamp(0.88em, 2.5vw, 1em);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(90, 111, 216, 0.4);
+    letter-spacing: 0.5px;
+    font-family: inherit;
+  }
+  
+  .quiz-btn:hover {
+    background-position: 100% 50%;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(155, 89, 182, 0.5);
+  }
+  
+  .quiz-btn:active { transform: translateY(-1px) scale(0.99); }
+  
+  .quiz {
+    display: none;
+    margin-top: 14px;
+    padding: clamp(12px, 3vw, 16px);
+    background: rgba(30, 25, 45, 0.85);
+    border-radius: 12px;
+    border: 1px dashed rgba(155, 89, 182, 0.5);
+    animation: slideDown 0.4s ease;
+  }
+  
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .quiz.show { display: block; }
+  
+  .quiz-block {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed rgba(155, 89, 182, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .quiz-block:hover { transform: translateX(3px); }
+  
+  .quiz-block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  
+  .quiz-type {
+    display: inline-block;
+    font-size: clamp(0.65em, 1.8vw, 0.75em);
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    color: #fff;
+  }
+  
+  .quiz-type.pos { background: linear-gradient(135deg, #2e7d32, #4caf50); }
+  .quiz-type.neg { background: linear-gradient(135deg, #b71c1c, #e53935); }
+  .quiz-type.qst { background: linear-gradient(135deg, #0d47a1, #2196f3); }
+  
+  .quiz p { margin-bottom: 10px; font-size: clamp(0.85em, 2.3vw, 0.95em); color: #e0dcf5; }
+  .quiz p b { color: #ffffff; font-weight: 600; }
+  
+  .quiz-option {
+    display: block;
+    width: 100%;
+    padding: clamp(9px, 2.5vw, 10px) clamp(11px, 3vw, 14px);
+    margin: 6px 0;
+    background: rgba(45, 38, 65, 0.9);
+    border: 2px solid rgba(120, 110, 160, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: clamp(0.82em, 2.2vw, 0.92em);
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: inherit;
+    font-weight: 500;
+    color: #e0dcf5;
+    position: relative;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+  
+  .quiz-option::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, #667eea, #9b59b6);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .quiz-option:hover {
+    border-color: #7d8de0;
+    transform: translateX(6px);
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.25);
+    background: rgba(55, 48, 80, 0.95);
+    color: #ffffff;
+  }
+  
+  .quiz-option:hover::before { transform: scaleY(1); }
+  
+  .quiz-option.correct { 
+    background: linear-gradient(135deg, rgba(56, 142, 60, 0.9), rgba(76, 175, 80, 0.8)); 
+    border-color: #4caf50; 
+    color: #ffffff;
+    animation: pop 0.5s ease;
+    font-weight: 600;
+  }
+  
+  .quiz-option.wrong { 
+    background: linear-gradient(135deg, rgba(198, 40, 40, 0.9), rgba(229, 57, 53, 0.8)); 
+    border-color: #e53935; 
+    color: #ffffff;
+    animation: shake 0.5s ease;
+    font-weight: 600;
+  }
+  
+  @keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-4px); }
+  }
+  
+  /* ============ ОБЩИЙ ТЕСТ ============ */
+  .final-test-section {
+    max-width: 900px;
+    margin: clamp(30px, 6vw, 50px) auto 30px;
+    position: relative;
+    z-index: 2;
+    perspective: 1200px;
+  }
+  
+  .final-card {
+    background: rgba(38, 32, 56, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: clamp(18px, 5vw, 35px);
+    box-shadow: 
+      0 25px 60px rgba(0, 0, 0, 0.5),
+      0 0 100px rgba(155, 89, 182, 0.15),
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .final-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, #5a6fd8, #9b59b6, #4a6fa5, #5a6fd8);
+    background-size: 300% 300%;
+    animation: borderRotate 8s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.7;
+  }
+  
+  @keyframes borderRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .final-card h2 {
+    text-align: center;
+    font-size: clamp(1.4em, 4.5vw, 2em);
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #b8c0ff, #d4a5f0, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  
+  .final-card .final-subtitle {
+    text-align: center;
+    color: #9d95c9;
+    font-style: italic;
+    margin-bottom: 25px;
+    font-size: clamp(0.85em, 2.5vw, 1em);
+  }
+  
+  .final-question {
+    background: rgba(30, 25, 45, 0.75);
+    border-radius: 14px;
+    padding: clamp(14px, 3.5vw, 18px) clamp(14px, 3.5vw, 20px);
+    margin-bottom: 16px;
+    border-left: 5px solid #667eea;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+  }
+  
+  .final-question:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+  }
+  
+  .final-question.wrong-question {
+    border-left-color: #e53935;
+  }
+  
+  .final-question .q-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5a6fd8, #9b59b6);
+    color: white;
+    font-weight: 800;
+    font-size: 0.85em;
+    margin-right: 10px;
+    box-shadow: 0 4px 12px rgba(90, 111, 216, 0.4);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  
+  .final-question .q-text {
+    display: inline;
+    font-size: clamp(0.88em, 2.4vw, 1em);
+    color: #f0ecff;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  
+  .final-options {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    gap: 8px;
+  }
+  
+  .final-option {
+    padding: clamp(9px, 2.5vw, 10px) clamp(11px, 3vw, 14px);
+    background: rgba(45, 38, 65, 0.9);
+    border: 2px solid rgba(120, 110, 160, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: clamp(0.82em, 2.2vw, 0.92em);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: inherit;
+    font-weight: 600;
+    color: #e0dcf5;
+    word-wrap: break-word;
+  }
+  
+  .final-option:hover {
+    border-color: #7d8de0;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    background: rgba(55, 48, 80, 0.95);
+    color: #ffffff;
+  }
+  
+  .final-option.correct { 
+    background: linear-gradient(135deg, rgba(56, 142, 60, 0.9), rgba(76, 175, 80, 0.8)); 
+    border-color: #4caf50; 
+    color: #ffffff;
+    animation: pop 0.5s ease;
+    font-weight: 700;
+  }
+  
+  .final-option.wrong { 
+    background: linear-gradient(135deg, rgba(198, 40, 40, 0.9), rgba(229, 57, 53, 0.8)); 
+    border-color: #e53935; 
+    color: #ffffff;
+    animation: shake 0.5s ease;
+    font-weight: 700;
+  }
+  
+  .final-option.locked {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  /* ============ КНОПКА И БЛОК ОБЪЯСНЕНИЯ ============ */
+  .explain-btn {
+    margin-top: 14px;
+    padding: clamp(10px, 2.5vw, 11px) clamp(16px, 4vw, 20px);
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: clamp(0.82em, 2.3vw, 0.92em);
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(243, 156, 18, 0.4);
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    animation: slideDown 0.4s ease;
+  }
+  
+  .explain-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(243, 156, 18, 0.6);
+    background: linear-gradient(135deg, #ffb347, #f39c12);
+  }
+  
+  .explain-btn:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+  
+  .explanation-box {
+    margin-top: 14px;
+    padding: clamp(14px, 3.5vw, 18px) clamp(14px, 3.5vw, 20px);
+    background: linear-gradient(135deg, rgba(243, 156, 18, 0.12), rgba(230, 126, 34, 0.08));
+    border-left: 5px solid #f39c12;
+    border-radius: 12px;
+    font-size: clamp(0.82em, 2.3vw, 0.95em);
+    line-height: 1.7;
+    color: #f5ebd8;
+    animation: slideDown 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) inset;
+  }
+  
+  .explanation-box .exp-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(0.95em, 2.6vw, 1.05em);
+    font-weight: 800;
+    color: #ffb347;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed rgba(255, 179, 71, 0.3);
+    letter-spacing: 0.3px;
+  }
+  
+  .explanation-box .exp-title .icon {
+    font-size: 1.2em;
+  }
+  
+  .explanation-box .exp-line {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .explanation-box .exp-line:last-child {
+    margin-bottom: 0;
+  }
+  
+  .explanation-box .exp-line .label {
+    display: inline-block;
+    flex-shrink: 0;
+    min-width: 62px;
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-size: 0.78em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    text-align: center;
+    margin-top: 2px;
+  }
+  
+  .explanation-box .exp-line .label.bad {
+    background: rgba(229, 57, 53, 0.25);
+    color: #ff8a80;
+    border: 1px solid rgba(229, 57, 53, 0.4);
+  }
+  
+  .explanation-box .exp-line .label.good {
+    background: rgba(76, 175, 80, 0.25);
+    color: #a5d6a7;
+    border: 1px solid rgba(76, 175, 80, 0.4);
+  }
+  
+  .explanation-box .exp-line .label.why {
+    background: rgba(255, 179, 71, 0.2);
+    color: #ffd89b;
+    border: 1px solid rgba(255, 179, 71, 0.4);
+  }
+  
+  .explanation-box .exp-line .content {
+    flex: 1;
+    color: #f0e6d0;
+    word-wrap: break-word;
+  }
+  
+  .explanation-box .exp-line .content b {
+    color: #ffffff;
+    font-weight: 700;
+  }
+  
+  .explanation-box .rule {
+    display: inline-block;
+    background: rgba(255, 179, 71, 0.2);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    color: #ffd89b;
+    font-weight: 700;
+    margin: 2px 2px;
+    border: 1px solid rgba(255, 179, 71, 0.25);
+  }
+  
+  .result-box {
+    display: none;
+    margin-top: 25px;
+    padding: clamp(22px, 5vw, 30px) clamp(16px, 4vw, 25px);
+    border-radius: 20px;
+    text-align: center;
+    animation: resultAppear 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .result-box.show { display: block; }
+  
+  @keyframes resultAppear {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  
+  .result-box.grade-5 {
+    background: linear-gradient(135deg, #2e7d32 0%, #43a047 50%, #66bb6a 100%);
+    box-shadow: 0 20px 50px rgba(76, 175, 80, 0.4);
+  }
+  
+  .result-box.grade-4 {
+    background: linear-gradient(135deg, #1565c0 0%, #1e88e5 50%, #42a5f5 100%);
+    box-shadow: 0 20px 50px rgba(66, 165, 245, 0.4);
+  }
+  
+  .result-box.grade-3 {
+    background: linear-gradient(135deg, #e65100 0%, #f57c00 50%, #ffb300 100%);
+    box-shadow: 0 20px 50px rgba(255, 179, 0, 0.4);
+  }
+  
+  .result-box.grade-2 {
+    background: linear-gradient(135deg, #b71c1c 0%, #c62828 50%, #e53935 100%);
+    box-shadow: 0 20px 50px rgba(229, 57, 53, 0.4);
+  }
+  
+  .result-box::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+    animation: rotate 10s linear infinite;
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .result-grade {
+    font-size: clamp(3em, 12vw, 5em);
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    line-height: 1;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    animation: pop 0.7s ease;
+  }
+  
+  .result-score {
+    font-size: clamp(1.05em, 3.5vw, 1.4em);
+    color: white;
+    font-weight: 700;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .result-message {
+    font-size: clamp(0.9em, 2.8vw, 1.1em);
+    color: rgba(255,255,255,0.95);
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+    padding: 0 10px;
+  }
+  
+  .result-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .result-btn {
+    padding: clamp(11px, 2.8vw, 12px) clamp(20px, 5vw, 28px);
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    font-size: clamp(0.85em, 2.4vw, 0.95em);
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  }
+  
+  .result-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  }
+  
+  .final-progress {
+    text-align: center;
+    margin-top: 20px;
+    color: #b8c0ff;
+    font-weight: 700;
+    font-size: clamp(0.85em, 2.4vw, 0.95em);
+  }
+  
+  .final-progress .bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(30, 25, 45, 0.8);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+    border: 1px solid rgba(155, 89, 182, 0.2);
+  }
+  
+  .final-progress .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #5a6fd8, #9b59b6);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 0%;
+    box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+  }
+  
+  .start-final-btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: clamp(13px, 3.2vw, 16px);
+    background: linear-gradient(135deg, #5a6fd8 0%, #7d5db8 50%, #9b59b6 100%);
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: clamp(0.95em, 2.8vw, 1.1em);
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(90, 111, 216, 0.4);
+    letter-spacing: 1px;
+    font-family: inherit;
+  }
+  
+  .start-final-btn:hover {
+    background-position: 100% 50%;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(155, 89, 182, 0.5);
+  }
+  
+  .final-questions-wrap {
+    display: none;
+  }
+  
+  .final-questions-wrap.show {
+    display: block;
+    animation: slideDown 0.5s ease;
+  }
+  
+  footer {
+    text-align: center;
+    color: #c5c0e0;
+    margin-top: 50px;
+    padding: 25px 15px;
+    opacity: 0.75;
+    font-size: clamp(0.82em, 2.3vw, 0.95em);
+    position: relative;
+    z-index: 2;
+  }
+  
+  footer::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    margin: 0 auto 15px;
+    background: linear-gradient(90deg, transparent, #9b59b6, transparent);
+    border-radius: 2px;
+  }
+  
+  .card {
+    animation: cardFadeIn 0.8s ease backwards;
+  }
+  
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.2s; }
+  .card:nth-child(3) { animation-delay: 0.3s; }
+  .card:nth-child(4) { animation-delay: 0.4s; }
+  
+  @keyframes cardFadeIn {
+    from { opacity: 0; transform: translateY(40px) rotateX(-10deg); }
+    to { opacity: 1; transform: translateY(0) rotateX(0); }
+  }
+  
+  /* ============ АДАПТИВНОСТЬ ============ */
+  
+  /* Планшеты */
+  @media (max-width: 768px) {
+    body { padding: 15px; }
+    
+    .orb1, .orb2, .orb3 { 
+      filter: blur(60px);
+      opacity: 0.2;
+    }
+    .orb1 { width: 300px; height: 300px; }
+    .orb2 { width: 250px; height: 250px; }
+    .orb3 { width: 200px; height: 200px; }
+    
+    .container {
+      grid-template-columns: 1fr;
+    }
+    
+    .formula {
+      font-size: 0.85em;
+      line-height: 1.9;
+    }
+    
+    .explanation-box .exp-line {
+      flex-direction: row;
+    }
+  }
+  
+  /* Телефоны */
+  @media (max-width: 500px) {
+    body { padding: 12px; }
+    
+    header { padding: 20px 10px; }
+    
+    .refresh-btn { 
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .marker {
+      padding: 5px 11px;
+      font-size: 0.72em;
+    }
+    
+    .final-question {
+      padding: 14px;
+    }
+    
+    .final-question .q-num {
+      width: 24px;
+      height: 24px;
+      font-size: 0.75em;
+      margin-right: 8px;
+    }
+    
+    .final-options {
+      grid-template-columns: 1fr;
+    }
+    
+    .explanation-box .exp-line {
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .explanation-box .exp-line .label {
+      min-width: auto;
+      align-self: flex-start;
+    }
+    
+    .result-grade {
+      font-size: 3.2em;
+    }
+    
+    .result-btn {
+      width: 100%;
+    }
+  }
+  
+  /* Очень маленькие телефоны */
+  @media (max-width: 360px) {
+    .formula {
+      font-size: 0.78em;
+      padding: 10px 12px;
+    }
+    
+    .card h2 {
+      font-size: 1.25em;
+    }
+    
+    .quiz-btn, .start-final-btn {
+      font-size: 0.85em;
+    }
+  }
+  
+  /* Уменьшенная анимация для пользователей с prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Landscape на телефонах */
+  @media (max-height: 500px) and (orientation: landscape) {
+    header { padding: 15px 10px; margin-bottom: 20px; }
+    header h1 { font-size: 1.5em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ ЗВЁЗДНЫЙ ФОН ============ -->
+<div class="stars-bg" id="starsBg">
+  <div class="stars-layer" id="starsLayer"></div>
+</div>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<header>
+  <h1>🇬🇧 Времена английского языка</h1>
+  <p>Повторение для 10 класса: Present Simple, Present Continuous, Past Simple, Present Perfect</p>
+  <p class="tagline">✨ Тесты обновляются при каждой загрузке ✨</p>
+  
+  <div class="refresh-bar">
+    <button class="refresh-btn" onclick="regenerateAll()">
+      <span class="icon">🔄</span> Новые тесты
+    </button>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- PRESENT SIMPLE -->
+  <div class="card">
+    <h2>Present Simple</h2>
+    <div class="subtitle">Простое настоящее — факты, привычки, регулярные действия</div>
+    
+    <div class="section">
+      <h3>📐 Схема по местоимениям</h3>
+      <div class="formula">
+        <span class="pos">+</span> I / You / We / They <b>play</b><br>
+        <span class="pos">+</span> He / She / It <b>play<u>s</u></b><br>
+        <span class="neg">−</span> I / You / We / They <b>don't</b> play<br>
+        <span class="neg">−</span> He / She / It <b>doesn't</b> play<br>
+        <span class="qst">?</span> I / you / we / they — <b>Do</b> ... play?<br>
+        <span class="qst">?</span> he / she / it — <b>Does</b> ... play?
+      </div>
+    </div>
+    
+    <div class="section">
+      <h3>✅ Примеры</h3>
+      <div class="example">
+        <span class="en">She doesn't like coffee.</span>
+        <span class="ru">Она не любит кофе.</span>
+      </div>
+      <div class="example">
+        <span class="en">Do you speak English?</span>
+        <span class="ru">Ты говоришь по-английски?</span>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h3>🔑 Маркеры</h3>
+      <span class="marker">always</span>
+      <span class="marker">usually</span>
+      <span class="marker">often</span>
+      <span class="marker">sometimes</span>
+      <span class="marker">never</span>
+      <span class="marker">every day</span>
+    </div>
+    
+    <div class="tip">
+      <strong>💡 Запомни:</strong> в 3-м лице ед. ч. (he/she/it) добавляем <b>-s</b>: work → works, go → goes, study → studies.
+    </div>
+    
+    <div class="warn">
+      <strong>⚠️ Ошибка:</strong> ❌ He don't → ✅ He <b>doesn't</b>
+    </div>
+    
+    <button class="quiz-btn" onclick="toggleQuiz(this)">Проверить себя (3 теста)</button>
+    <div class="quiz" data-tense="presentSimple"></div>
+  </div>
+
+  <!-- PRESENT CONTINUOUS -->
+  <div class="card">
+    <h2>Present Continuous</h2>
+    <div class="subtitle">Настоящее длительное — действие прямо сейчас</div>
+    
+    <div class="section">
+      <h3>📐 Схема по местоимениям</h3>
+      <div class="formula">
+        <span class="pos">+</span> I <b>am</b> playing<br>
+        <span class="pos">+</span> He / She / It <b>is</b> playing<br>
+        <span class="pos">+</span> You / We / They <b>are</b> playing<br>
+        <span class="neg">−</span> I <b>am not</b> playing<br>
+        <span class="neg">−</span> He / She / It <b>isn't</b> playing<br>
+        <span class="neg">−</span> You / We / They <b>aren't</b> playing<br>
+        <span class="qst">?</span> I — <b>Am</b> ... playing?<br>
+        <span class="qst">?</span> he / she / it — <b>Is</b> ... playing?<br>
+        <span class="qst">?</span> you / we / they — <b>Are</b> ... playing?
+      </div>
+    </div>
+    
+    <div class="section">
+      <h3>✅ Примеры</h3>
+      <div class="example">
+        <span class="en">They aren't listening to music.</span>
+        <span class="ru">Они не слушают музыку.</span>
+      </div>
+      <div class="example">
+        <span class="en">Is she cooking dinner?</span>
+        <span class="ru">Она готовит ужин?</span>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h3>🔑 Маркеры</h3>
+      <span class="marker">now</span>
+      <span class="marker">at the moment</span>
+      <span class="marker">look!</span>
+      <span class="marker">listen!</span>
+      <span class="marker">currently</span>
+    </div>
+    
+    <div class="tip">
+      <strong>💡 Запомни:</strong> глаголы чувств (like, love, know, want, need) обычно НЕ используются в Continuous.
+    </div>
+    
+    <div class="warn">
+      <strong>⚠️ Ошибка:</strong> ❌ I is → ✅ I <b>am</b> · ❌ She are → ✅ She <b>is</b>
+    </div>
+    
+    <button class="quiz-btn" onclick="toggleQuiz(this)">Проверить себя (3 теста)</button>
+    <div class="quiz" data-tense="presentContinuous"></div>
+  </div>
+
+  <!-- PAST SIMPLE -->
+  <div class="card">
+    <h2>Past Simple</h2>
+    <div class="subtitle">Простое прошедшее — завершённое действие в прошлом</div>
+    
+    <div class="section">
+      <h3>📐 Схема по местоимениям</h3>
+      <div class="formula">
+        <span class="pos">+</span> любое местоимение — <b>V2</b> (played / went)<br>
+        <span class="neg">−</span> любое местоимение — <b>didn't</b> + V1<br>
+        <span class="qst">?</span> любое местоимение — <b>Did</b> ... V1?
+      </div>
+    </div>
+    
+    <div class="section">
+      <h3>✅ Примеры</h3>
+      <div class="example">
+        <span class="en">He didn't go to the party.</span>
+        <span class="ru">Он не пошёл на вечеринку.</span>
+      </div>
+      <div class="example">
+        <span class="en">Did you see this film?</span>
+        <span class="ru">Ты видел этот фильм?</span>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h3>🔑 Маркеры</h3>
+      <span class="marker">yesterday</span>
+      <span class="marker">last week</span>
+      <span class="marker">ago</span>
+      <span class="marker">in 2020</span>
+      <span class="marker">when</span>
+    </div>
+    
+    <div class="tip">
+      <strong>💡 Хорошая новость:</strong> в Past Simple форма <b>didn't</b> и <b>Did</b> одинаковая для ВСЕХ местоимений!
+    </div>
+    
+    <div class="warn">
+      <strong>⚠️ Ошибка:</strong> ❌ Did you <s>went</s>? → ✅ Did you <b>go</b>?
+    </div>
+    
+    <button class="quiz-btn" onclick="toggleQuiz(this)">Проверить себя (3 теста)</button>
+    <div class="quiz" data-tense="pastSimple"></div>
+  </div>
+
+  <!-- PRESENT PERFECT -->
+  <div class="card">
+    <h2>Present Perfect</h2>
+    <div class="subtitle">Настоящее совершённое — результат важен сейчас, опыт</div>
+    
+    <div class="section">
+      <h3>📐 Схема по местоимениям</h3>
+      <div class="formula">
+        <span class="pos">+</span> I / You / We / They <b>have</b> + V3<br>
+        <span class="pos">+</span> He / She / It <b>has</b> + V3<br>
+        <span class="neg">−</span> I / You / We / They <b>haven't</b> + V3<br>
+        <span class="neg">−</span> He / She / It <b>hasn't</b> + V3<br>
+        <span class="qst">?</span> I / you / we / they — <b>Have</b> ... V3?<br>
+        <span class="qst">?</span> he / she / it — <b>Has</b> ... V3?
+      </div>
+    </div>
+    
+    <div class="section">
+      <h3>✅ Примеры</h3>
+      <div class="example">
+        <span class="en">She has never been to London.</span>
+        <span class="ru">Она никогда не была в Лондоне.</span>
+      </div>
+      <div class="example">
+        <span class="en">Have you seen this film?</span>
+        <span class="ru">Ты видел этот фильм?</span>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h3>🔑 Маркеры</h3>
+      <span class="marker">already</span>
+      <span class="marker">yet</span>
+      <span class="marker">just</span>
+      <span class="marker">ever</span>
+      <span class="marker">never</span>
+      <span class="marker">since</span>
+      <span class="marker">for</span>
+    </div>
+    
+    <div class="tip">
+      <strong>💡 Запомни:</strong> Present Perfect <b>никогда</b> не используется с конкретным прошедшим временем (yesterday, last week).
+    </div>
+    
+    <div class="warn">
+      <strong>⚠️ Ошибка:</strong> ❌ He <s>have</s> finished → ✅ He <b>has</b> finished
+    </div>
+    
+    <button class="quiz-btn" onclick="toggleQuiz(this)">Проверить себя (3 теста)</button>
+    <div class="quiz" data-tense="presentPerfect"></div>
+  </div>
+
+</div>
+
+<!-- ============ ОБЩИЙ ТЕСТ ============ -->
+<div class="final-test-section">
+  <div class="final-card">
+    <h2>🏆 Общий тест</h2>
+    <p class="final-subtitle">5 заданий на все времена — проверь себя!</p>
+    
+    <button class="start-final-btn" id="startFinalBtn" onclick="startFinalTest()">
+      🚀 Начать общий тест
+    </button>
+    
+    <div class="final-questions-wrap" id="finalWrap">
+      <div id="finalQuestions"></div>
+      <div class="final-progress">
+        Отвечено: <span id="answeredCount">0</span> / 5
+        <div class="bar"><div class="bar-fill" id="progressFill"></div></div>
+      </div>
+    </div>
+    
+    <div class="result-box" id="resultBox">
+      <div class="result-grade" id="resultGrade">5</div>
+      <div class="result-score" id="resultScore">5 / 5</div>
+      <div class="result-message" id="resultMessage">Отлично!</div>
+      <div class="result-actions">
+        <button class="result-btn" onclick="startFinalTest()">🔄 Пройти заново</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  ✨ Повторяй времена каждый день — и английский станет твоим другом!
+</footer>
+
+<script>
+  /* ============ ГЕНЕРАЦИЯ ЗВЁЗД ============ */
+  (function generateStars() {
+    const layer = document.getElementById('starsLayer');
+    const starCount = window.innerWidth < 768 ? 40 : 70;
+    
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = Math.random() * 3 + 1;
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      
+      // Иногда добавляем цвет
+      if (Math.random() > 0.7) {
+        star.style.background = '#b8c0ff';
+        star.style.boxShadow = '0 0 8px rgba(184, 192, 255, 0.9), 0 0 16px rgba(184, 192, 255, 0.6)';
+      } else if (Math.random() > 0.5) {
+        star.style.background = '#ffd89b';
+        star.style.boxShadow = '0 0 8px rgba(255, 216, 155, 0.9), 0 0 16px rgba(255, 216, 155, 0.6)';
+      }
+      
+      layer.appendChild(star);
+    }
+  })();
+  
+  /* ============ БАНК ВОПРОСОВ ============ */
+  const questionBank = {
+    presentSimple: [
+      { type: 'pos', q: 'She ___ (read) books every evening.', options: ['read', 'reads', 'is reading'], correct: 'reads',
+        explanation: {
+          why: 'She — это he/she/it (3-е лицо ед. ч.). В Present Simple к таким глаголам добавляем окончание <b>-s</b>.',
+          right: 'read + s = <b>reads</b>',
+          wrong: 'read — без -s (это для I/you/we/they); is reading — это Present Continuous, а «every evening» — регулярное действие'
+        }
+      },
+      { type: 'pos', q: 'They ___ (go) to the gym twice a week.', options: ['go', 'goes', 'are going'], correct: 'go',
+        explanation: {
+          why: 'They — множественное число. В Present Simple с I/you/we/they глагол идёт <b>без окончания</b>.',
+          right: 'go (без -s)',
+          wrong: 'goes — только для he/she/it; are going — Present Continuous, а «twice a week» — регулярное действие'
+        }
+      },
+      { type: 'pos', q: 'My brother ___ (study) at university.', options: ['study', 'studies', 'is studying'], correct: 'studies',
+        explanation: {
+          why: 'My brother = he (3-е лицо ед. ч.). Глаголы, оканчивающиеся на согласную + y, меняют y на <b>-ies</b>.',
+          right: 'study → stud<b>ies</b>',
+          wrong: 'study — без изменений; is studying — Present Continuous'
+        }
+      },
+      { type: 'pos', q: 'We usually ___ (have) lunch at 1 pm.', options: ['has', 'have', 'are having'], correct: 'have',
+        explanation: {
+          why: 'We — множественное число → глагол без -s. Слово «usually» — маркер Present Simple.',
+          right: 'have',
+          wrong: 'has — только для he/she/it; are having — Present Continuous'
+        }
+      },
+      { type: 'pos', q: 'He ___ (watch) TV in the evening.', options: ['watch', 'watches', 'is watching'], correct: 'watches',
+        explanation: {
+          why: 'He — 3-е лицо ед. ч. Глаголы, оканчивающиеся на -ch, -sh, -s, -x, -o, добавляют <b>-es</b>.',
+          right: 'watch + es = <b>watches</b>',
+          wrong: 'watch — без -es; is watching — Present Continuous'
+        }
+      },
+      { type: 'neg', q: 'He ___ like fish.', options: ["don't", "doesn't", "isn't"], correct: "doesn't",
+        explanation: {
+          why: 'He — 3-е лицо ед. ч. Отрицание в Present Simple: <b>doesn\'t</b> + глагол в начальной форме.',
+          right: 'He <b>doesn\'t</b> like fish',
+          wrong: 'don\'t — только для I/you/we/they; isn\'t — это отрицание для Continuous (is not)'
+        }
+      },
+      { type: 'neg', q: 'They ___ (not / live) in Moscow.', options: ["don't live", "doesn't live", "don't lives"], correct: "don't live",
+        explanation: {
+          why: 'They → отрицание <b>don\'t</b>. После don\'t глагол ВСЕГДА в начальной форме (V1), без -s.',
+          right: 'They <b>don\'t live</b>',
+          wrong: 'doesn\'t — только для he/she/it; «don\'t lives» — ошибка, после don\'t не бывает -s'
+        }
+      },
+      { type: 'neg', q: 'My sister ___ (not / eat) meat.', options: ["don't eat", "doesn't eat", "doesn't eats"], correct: "doesn't eat",
+        explanation: {
+          why: 'My sister = she → <b>doesn\'t</b> + V1. После doesn\'t глагол БЕЗ окончания -s.',
+          right: 'She <b>doesn\'t eat</b>',
+          wrong: 'don\'t — для I/you/we/they; «doesn\'t eats» — ошибка, -s уже есть в doesn\'t'
+        }
+      },
+      { type: 'neg', q: 'I ___ (not / watch) TV in the morning.', options: ["doesn't watch", "don't watch", "am not watch"], correct: "don't watch",
+        explanation: {
+          why: 'I → отрицание <b>don\'t</b> + V1. Отрицание Present Simple, не Continuous.',
+          right: 'I <b>don\'t watch</b>',
+          wrong: 'doesn\'t — только для he/she/it; «am not watch» — нет такой формы'
+        }
+      },
+      { type: 'neg', q: 'The cat ___ (not / like) water.', options: ["don't like", "doesn't like", "doesn't likes"], correct: "doesn't like",
+        explanation: {
+          why: 'The cat = it (3-е лицо ед. ч.) → <b>doesn\'t</b> + V1 (like).',
+          right: 'It <b>doesn\'t like</b>',
+          wrong: 'don\'t — для I/you/we/they; «doesn\'t likes» — лишняя -s'
+        }
+      },
+      { type: 'qst', q: '___ they play tennis on Sundays?', options: ['Do', 'Does', 'Are'], correct: 'Do',
+        explanation: {
+          why: 'They → вопрос начинается с <b>Do</b>. После Do глагол в начальной форме.',
+          right: '<b>Do</b> they play?',
+          wrong: 'Does — только для he/she/it; Are — для Continuous'
+        }
+      },
+      { type: 'qst', q: '___ she speak Spanish?', options: ['Do', 'Does', 'Is'], correct: 'Does',
+        explanation: {
+          why: 'She — 3-е лицо ед. ч. → вопрос начинается с <b>Does</b>. После Does глагол БЕЗ -s.',
+          right: '<b>Does</b> she speak?',
+          wrong: 'Do — для I/you/we/they; Is — это для Continuous'
+        }
+      },
+      { type: 'qst', q: '___ you like chocolate?', options: ['Do', 'Does', 'Are'], correct: 'Do',
+        explanation: {
+          why: 'You → вопрос начинается с <b>Do</b>.',
+          right: '<b>Do</b> you like?',
+          wrong: 'Does — только для he/she/it; Are — для Continuous'
+        }
+      },
+      { type: 'qst', q: '___ he work in a bank?', options: ['Do', 'Does', 'Is'], correct: 'Does',
+        explanation: {
+          why: 'He — 3-е лицо ед. ч. → вопрос с <b>Does</b>. После Does глагол без -s.',
+          right: '<b>Does</b> he work?',
+          wrong: 'Do — для I/you/we/they; Is — не для этого времени'
+        }
+      },
+      { type: 'qst', q: '___ your parents live in London?', options: ['Do', 'Does', 'Are'], correct: 'Do',
+        explanation: {
+          why: 'Your parents = they (мн. ч.) → <b>Do</b> ... ?',
+          right: '<b>Do</b> your parents live?',
+          wrong: 'Does — только для he/she/it; Are — для Continuous'
+        }
+      }
+    ],
+    
+    presentContinuous: [
+      { type: 'pos', q: 'Look! The children ___ (play) football.', options: ['play', 'are playing', 'is playing'], correct: 'are playing',
+        explanation: {
+          why: 'The children = they → <b>are</b> + глагол с -ing. Слово «Look!» — маркер действия прямо сейчас.',
+          right: 'They <b>are playing</b>',
+          wrong: 'play — Present Simple; is playing — только для he/she/it'
+        }
+      },
+      { type: 'pos', q: 'I ___ (read) an interesting book now.', options: ['read', 'am reading', 'is reading'], correct: 'am reading',
+        explanation: {
+          why: 'С местоимением I в Continuous используется <b>am</b> + Ving. «Now» — маркер действия сейчас.',
+          right: 'I <b>am reading</b>',
+          wrong: 'read — Present Simple; is reading — только для he/she/it'
+        }
+      },
+      { type: 'pos', q: 'She ___ (cook) dinner at the moment.', options: ['cook', 'is cooking', 'are cooking'], correct: 'is cooking',
+        explanation: {
+          why: 'She — 3-е лицо ед. ч. → <b>is</b> + Ving. «At the moment» — маркер Continuous.',
+          right: 'She <b>is cooking</b>',
+          wrong: 'cook — Present Simple; are cooking — только для you/we/they'
+        }
+      },
+      { type: 'pos', q: 'Listen! Somebody ___ (sing) in the next room.', options: ['sings', 'is singing', 'are singing'], correct: 'is singing',
+        explanation: {
+          why: 'Somebody = he/she (3-е лицо ед. ч.) → <b>is</b> + Ving. «Listen!» — маркер.',
+          right: '<b>is singing</b>',
+          wrong: 'sings — Present Simple; are singing — не для ед. ч.'
+        }
+      },
+      { type: 'pos', q: 'We ___ (watch) a film right now.', options: ['watch', 'are watching', 'is watching'], correct: 'are watching',
+        explanation: {
+          why: 'We → <b>are</b> + Ving. «Right now» — маркер действия прямо сейчас.',
+          right: 'We <b>are watching</b>',
+          wrong: 'watch — Present Simple; is watching — только для he/she/it'
+        }
+      },
+      { type: 'neg', q: 'I ___ (not / sleep) right now.', options: ["don't sleeping", "am not sleeping", "not sleep"], correct: "am not sleeping",
+        explanation: {
+          why: 'I в Continuous → отрицание <b>am not</b> + Ving.',
+          right: 'I <b>am not sleeping</b>',
+          wrong: '«don\'t sleeping» — нельзя (don\'t не для Continuous); «not sleep» — нет вспомогательного глагола'
+        }
+      },
+      { type: 'neg', q: 'She ___ (not / work) at the moment.', options: ["aren't working", "isn't working", "don't working"], correct: "isn't working",
+        explanation: {
+          why: 'She → <b>isn\'t</b> (is not) + Ving.',
+          right: 'She <b>isn\'t working</b>',
+          wrong: 'aren\'t — для you/we/they; «don\'t working» — ошибка (don\'t не для Continuous)'
+        }
+      },
+      { type: 'neg', q: 'They ___ (not / listen) to music now.', options: ["isn't listening", "aren't listening", "don't listening"], correct: "aren't listening",
+        explanation: {
+          why: 'They → <b>aren\'t</b> (are not) + Ving.',
+          right: 'They <b>aren\'t listening</b>',
+          wrong: 'isn\'t — только для he/she/it; «don\'t listening» — ошибка'
+        }
+      },
+      { type: 'neg', q: 'He ___ (not / study) — he is playing games.', options: ["aren't studying", "isn't studying", "doesn't studying"], correct: "isn't studying",
+        explanation: {
+          why: 'He → <b>isn\'t</b> + Ving.',
+          right: 'He <b>isn\'t studying</b>',
+          wrong: 'aren\'t — для you/we/they; «doesn\'t studying» — ошибка'
+        }
+      },
+      { type: 'neg', q: 'We ___ (not / wait) for a bus.', options: ["isn't waiting", "aren't waiting", "don't waiting"], correct: "aren't waiting",
+        explanation: {
+          why: 'We → <b>aren\'t</b> + Ving.',
+          right: 'We <b>aren\'t waiting</b>',
+          wrong: 'isn\'t — только для he/she/it; «don\'t waiting» — ошибка'
+        }
+      },
+      { type: 'qst', q: '___ you listening to me?', options: ['Are', 'Do', 'Is'], correct: 'Are',
+        explanation: {
+          why: 'You → вопрос начинается с <b>Are</b>.',
+          right: '<b>Are</b> you listening?',
+          wrong: 'Do — для Present Simple; Is — для he/she/it'
+        }
+      },
+      { type: 'qst', q: '___ he doing his homework?', options: ['Are', 'Do', 'Is'], correct: 'Is',
+        explanation: {
+          why: 'He — 3-е лицо ед. ч. → <b>Is</b> he doing?',
+          right: '<b>Is</b> he doing?',
+          wrong: 'Are — для you/we/they; Do — для Present Simple'
+        }
+      },
+      { type: 'qst', q: '___ she cooking dinner now?', options: ['Is', 'Are', 'Does'], correct: 'Is',
+        explanation: {
+          why: 'She → <b>Is</b> she cooking?',
+          right: '<b>Is</b> she cooking?',
+          wrong: 'Are — не для she; Does — для Present Simple'
+        }
+      },
+      { type: 'qst', q: '___ they playing in the yard?', options: ['Is', 'Are', 'Do'], correct: 'Are',
+        explanation: {
+          why: 'They → <b>Are</b> they playing?',
+          right: '<b>Are</b> they playing?',
+          wrong: 'Is — только для he/she/it; Do — для Present Simple'
+        }
+      },
+      { type: 'qst', q: '___ I talking too loudly?', options: ['Am', 'Is', 'Do'], correct: 'Am',
+        explanation: {
+          why: 'С местоимением I используется <b>Am</b> — единственный случай.',
+          right: '<b>Am</b> I talking?',
+          wrong: 'Is — для he/she/it; Do — для Present Simple'
+        }
+      }
+    ],
+    
+    pastSimple: [
+      { type: 'pos', q: 'We ___ (watch) a film last night.', options: ['watch', 'watched', 'have watched'], correct: 'watched',
+        explanation: {
+          why: 'Watch — правильный глагол. В Past Simple к нему добавляется <b>-ed</b>. «Last night» — маркер прошлого.',
+          right: 'watch + ed = <b>watched</b>',
+          wrong: 'watch — Present Simple; have watched — Present Perfect'
+        }
+      },
+      { type: 'pos', q: 'She ___ (go) to Paris last summer.', options: ['go', 'goed', 'went'], correct: 'went',
+        explanation: {
+          why: 'Go — неправильный глагол. Его вторая форма (V2) — <b>went</b>, её нужно запомнить.',
+          right: 'go → <b>went</b> (V2)',
+          wrong: 'go — Present Simple; «goed» — такой формы не существует'
+        }
+      },
+      { type: 'pos', q: 'They ___ (visit) their grandma yesterday.', options: ['visit', 'visited', 'have visited'], correct: 'visited',
+        explanation: {
+          why: 'Visit — правильный глагол → + <b>-ed</b>. «Yesterday» — маркер Past Simple.',
+          right: 'visit + ed = <b>visited</b>',
+          wrong: 'visit — Present Simple; have visited — Present Perfect'
+        }
+      },
+      { type: 'pos', q: 'He ___ (buy) a new phone last week.', options: ['buyed', 'bought', 'have bought'], correct: 'bought',
+        explanation: {
+          why: 'Buy — неправильный глагол. Вторая форма — <b>bought</b>, её нужно запомнить.',
+          right: 'buy → <b>bought</b>',
+          wrong: '«buyed» — такой формы не существует; have bought — Present Perfect'
+        }
+      },
+      { type: 'pos', q: 'I ___ (see) a great film two days ago.', options: ['saw', 'seen', 'seed'], correct: 'saw',
+        explanation: {
+          why: 'See — неправильный глагол. Три формы: see → <b>saw</b> → seen. Здесь нужна вторая (V2) — saw.',
+          right: 'see → <b>saw</b>',
+          wrong: 'seen — это третья форма (V3, для Perfect); «seed» — не существует'
+        }
+      },
+      { type: 'neg', q: 'She ___ (not / come) to school yesterday.', options: ["didn't came", "didn't come", "doesn't come"], correct: "didn't come",
+        explanation: {
+          why: 'После <b>didn\'t</b> всегда идёт глагол в начальной форме (V1), без изменений.',
+          right: 'She <b>didn\'t come</b>',
+          wrong: '«didn\'t came» — ошибка, after didn\'t ставим come; doesn\'t — не для Past'
+        }
+      },
+      { type: 'neg', q: 'I ___ (not / see) him at the party.', options: ["didn't saw", "didn't see", "don't see"], correct: "didn't see",
+        explanation: {
+          why: 'После <b>didn\'t</b> — только V1 (see), не saw.',
+          right: 'I <b>didn\'t see</b>',
+          wrong: '«didn\'t saw» — ошибка; don\'t see — Present Simple'
+        }
+      },
+      { type: 'neg', q: 'They ___ (not / go) to the cinema last weekend.', options: ["didn't went", "didn't go", "doesn't go"], correct: "didn't go",
+        explanation: {
+          why: 'После <b>didn\'t</b> — V1 (go). «Went» уже содержит past, но после didn\'t это не нужно.',
+          right: 'They <b>didn\'t go</b>',
+          wrong: '«didn\'t went» — двойное прошедшее, ошибка; doesn\'t — не для Past'
+        }
+      },
+      { type: 'neg', q: 'He ___ (not / finish) his homework.', options: ["didn't finished", "didn't finish", "doesn't finish"], correct: "didn't finish",
+        explanation: {
+          why: 'После <b>didn\'t</b> — V1 (finish), без окончания -ed.',
+          right: 'He <b>didn\'t finish</b>',
+          wrong: '«didn\'t finished» — лишнее -ed; doesn\'t — не для Past'
+        }
+      },
+      { type: 'neg', q: 'We ___ (not / meet) them yesterday.', options: ["didn't met", "didn't meet", "don't meet"], correct: "didn't meet",
+        explanation: {
+          why: 'После <b>didn\'t</b> — V1 (meet). «Met» — это V2, она не нужна после didn\'t.',
+          right: 'We <b>didn\'t meet</b>',
+          wrong: '«didn\'t met» — ошибка; don\'t meet — Present Simple'
+        }
+      },
+      { type: 'qst', q: '___ you go to the cinema last weekend?', options: ['Did', 'Do', 'Have'], correct: 'Did',
+        explanation: {
+          why: 'Past Simple → вопрос начинается с <b>Did</b> + V1. «Last weekend» — маркер прошлого.',
+          right: '<b>Did</b> you go?',
+          wrong: 'Do — Present Simple; Have — Present Perfect'
+        }
+      },
+      { type: 'qst', q: '___ she call you yesterday?', options: ['Did', 'Does', 'Was'], correct: 'Did',
+        explanation: {
+          why: 'Для всех местоимений в Past Simple вопрос с <b>Did</b> + V1.',
+          right: '<b>Did</b> she call?',
+          wrong: 'Does — Present Simple; Was — не для этого вопроса'
+        }
+      },
+      { type: 'qst', q: '___ they enjoy the party?', options: ['Did', 'Do', 'Were'], correct: 'Did',
+        explanation: {
+          why: '<b>Did</b> they enjoy? После Did — V1 (enjoy), без -ed.',
+          right: '<b>Did</b> they enjoy?',
+          wrong: 'Do — Present Simple; Were — форма be в прошлом'
+        }
+      },
+      { type: 'qst', q: '___ he tell you the truth?', options: ['Did', 'Does', 'Was'], correct: 'Did',
+        explanation: {
+          why: '<b>Did</b> he tell? После Did — V1 (tell), не told.',
+          right: '<b>Did</b> he tell?',
+          wrong: 'Does — Present Simple; Was — не для этого вопроса'
+        }
+      },
+      { type: 'qst', q: '___ you finish your project on time?', options: ['Did', 'Do', 'Have'], correct: 'Did',
+        explanation: {
+          why: 'Вопрос в Past Simple → <b>Did</b> + V1 (finish).',
+          right: '<b>Did</b> you finish?',
+          wrong: 'Do — Present Simple; Have — Present Perfect'
+        }
+      }
+    ],
+    
+    presentPerfect: [
+      { type: 'pos', q: 'I ___ (already / finish) my project.', options: ['already finished', 'have already finished', 'has already finished'], correct: 'have already finished',
+        explanation: {
+          why: 'I → <b>have</b> + V3 (finished). «Already» — маркер Present Perfect.',
+          right: 'I <b>have already finished</b>',
+          wrong: '«already finished» — Past Simple; «has» — только для he/she/it'
+        }
+      },
+      { type: 'pos', q: 'She ___ (just / arrive) at the airport.', options: ['just arrived', 'has just arrived', 'have just arrived'], correct: 'has just arrived',
+        explanation: {
+          why: 'She — 3-е лицо ед. ч. → <b>has</b> + V3 (arrived). «Just» — маркер.',
+          right: 'She <b>has just arrived</b>',
+          wrong: '«just arrived» — Past Simple; «have» — не для she'
+        }
+      },
+      { type: 'pos', q: 'We ___ (never / be) to Japan.', options: ['never were', 'have never been', 'has never been'], correct: 'have never been',
+        explanation: {
+          why: 'We → <b>have</b> + V3 (been). Be — неправильный: be → was/were → been.',
+          right: 'We <b>have never been</b>',
+          wrong: '«never were» — Past Simple; «has» — не для we'
+        }
+      },
+      { type: 'pos', q: 'He ___ (lose) his keys.', options: ['lost', 'has lost', 'have lost'], correct: 'has lost',
+        explanation: {
+          why: 'He → <b>has</b> + V3 (lost). Ключи потеряны — результат важен сейчас.',
+          right: 'He <b>has lost</b>',
+          wrong: 'lost — Past Simple; «have» — не для he'
+        }
+      },
+      { type: 'pos', q: 'They ___ (live) here for ten years.', options: ['live', 'have lived', 'has lived'], correct: 'have lived',
+        explanation: {
+          why: 'They → <b>have</b> + V3 (lived). «For ten years» — маркер длительности до сейчас.',
+          right: 'They <b>have lived</b>',
+          wrong: 'live — Present Simple; «has» — не для they'
+        }
+      },
+      { type: 'neg', q: 'He ___ (not / see) this film yet.', options: ["didn't seen", "hasn't seen", "haven't saw"], correct: "hasn't seen",
+        explanation: {
+          why: 'He → <b>hasn\'t</b> + V3 (seen). «Yet» — маркер Present Perfect.',
+          right: 'He <b>hasn\'t seen</b>',
+          wrong: '«didn\'t seen» — смешение; «haven\'t» — не для he'
+        }
+      },
+      { type: 'neg', q: 'We ___ (not / meet) him before.', options: ["hasn't met", "haven't met", "didn't met"], correct: "haven't met",
+        explanation: {
+          why: 'We → <b>haven\'t</b> + V3 (met). «Before» — маркер.',
+          right: 'We <b>haven\'t met</b>',
+          wrong: '«hasn\'t» — не для we; «didn\'t met» — ошибка'
+        }
+      },
+      { type: 'neg', q: 'She ___ (not / finish) her homework yet.', options: ["haven't finished", "hasn't finished", "didn't finished"], correct: "hasn't finished",
+        explanation: {
+          why: 'She → <b>hasn\'t</b> + V3 (finished). «Yet» — маркер.',
+          right: 'She <b>hasn\'t finished</b>',
+          wrong: '«haven\'t» — не для she; «didn\'t finished» — ошибка'
+        }
+      },
+      { type: 'neg', q: 'I ___ (not / eat) sushi before.', options: ["hasn't eaten", "haven't eaten", "didn't ate"], correct: "haven't eaten",
+        explanation: {
+          why: 'I → <b>haven\'t</b> + V3. Eat — неправильный: eat → ate → <b>eaten</b>.',
+          right: 'I <b>haven\'t eaten</b>',
+          wrong: '«hasn\'t» — не для I; «didn\'t ate» — ошибка, ate это V2'
+        }
+      },
+      { type: 'neg', q: 'They ___ (not / be) to the new cafe yet.', options: ["hasn't been", "haven't been", "didn't been"], correct: "haven't been",
+        explanation: {
+          why: 'They → <b>haven\'t</b> + V3 (been). Be → was/were → been.',
+          right: 'They <b>haven\'t been</b>',
+          wrong: '«hasn\'t» — не для they; «didn\'t been» — ошибка'
+        }
+      },
+      { type: 'qst', q: '___ you ever been to Paris?', options: ['Have', 'Has', 'Did'], correct: 'Have',
+        explanation: {
+          why: 'You → <b>Have</b> you been? «Ever» — маркер Present Perfect.',
+          right: '<b>Have</b> you ever been?',
+          wrong: 'Has — только для he/she/it; Did — Past Simple'
+        }
+      },
+      { type: 'qst', q: '___ she done her homework?', options: ['Have', 'Has', 'Did'], correct: 'Has',
+        explanation: {
+          why: 'She → <b>Has</b> she done? После Has — V3 (done).',
+          right: '<b>Has</b> she done?',
+          wrong: 'Have — не для she; Did — Past Simple'
+        }
+      },
+      { type: 'qst', q: '___ they finished the project yet?', options: ['Have', 'Has', 'Did'], correct: 'Have',
+        explanation: {
+          why: 'They → <b>Have</b> they finished? «Yet» — маркер Present Perfect.',
+          right: '<b>Have</b> they finished?',
+          wrong: 'Has — не для they; Did — Past Simple'
+        }
+      },
+      { type: 'qst', q: '___ he ever tried Chinese food?', options: ['Have', 'Has', 'Did'], correct: 'Has',
+        explanation: {
+          why: 'He → <b>Has</b> he tried? «Ever» — маркер.',
+          right: '<b>Has</b> he ever tried?',
+          wrong: 'Have — не для he; Did — Past Simple'
+        }
+      },
+      { type: 'qst', q: '___ you seen this film before?', options: ['Have', 'Has', 'Did'], correct: 'Have',
+        explanation: {
+          why: 'You → <b>Have</b> you seen? «Before» — маркер Present Perfect.',
+          right: '<b>Have</b> you seen?',
+          wrong: 'Has — только для he/she/it; Did — Past Simple'
+        }
+      }
+    ]
+  };
+  
+  /* ============ УТИЛИТЫ ============ */
+  
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+  
+  function pickRandom(arr, n) {
+    return shuffle(arr).slice(0, n);
+  }
+  
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  
+  const typeLabels = {
+    pos: { label: '➕ Утверждение', cls: 'pos' },
+    neg: { label: '➖ Отрицание', cls: 'neg' },
+    qst: { label: '❓ Вопрос', cls: 'qst' }
+  };
+  
+  /* ============ МИНИ-ТЕСТЫ ============ */
+  
+  function generateQuiz(tenseKey) {
+    const bank = questionBank[tenseKey];
+    const byType = { pos: [], neg: [], qst: [] };
+    bank.forEach(q => byType[q.type].push(q));
+    
+    const selected = [
+      ...pickRandom(byType.pos, 1),
+      ...pickRandom(byType.neg, 1),
+      ...pickRandom(byType.qst, 1)
+    ];
+    
+    const html = selected.map(item => {
+      const t = typeLabels[item.type];
+      const shuffledOptions = shuffle(item.options);
+      
+      const optionsHtml = shuffledOptions.map(opt => {
+        const isCorrect = opt === item.correct;
+        return `<button class="quiz-option" onclick="checkAnswer(this, ${isCorrect})">${escapeHtml(opt)}</button>`;
+      }).join('');
+      
+      return `
+        <div class="quiz-block">
+          <span class="quiz-type ${t.cls}">${t.label}</span>
+          <p><b>${escapeHtml(item.q)}</b></p>
+          ${optionsHtml}
+        </div>
+      `;
+    }).join('');
+    
+    return html;
+  }
+  
+  function renderAllQuizzes() {
+    document.querySelectorAll('.quiz[data-tense]').forEach(quizEl => {
+      const tenseKey = quizEl.dataset.tense;
+      quizEl.innerHTML = generateQuiz(tenseKey);
+    });
+  }
+  
+  function toggleQuiz(btn) {
+    const quiz = btn.nextElementSibling;
+    quiz.classList.toggle('show');
+    btn.textContent = quiz.classList.contains('show') 
+      ? 'Скрыть тесты' 
+      : 'Проверить себя (3 теста)';
+  }
+  
+  function checkAnswer(option, isCorrect) {
+    const parent = option.parentElement;
+    parent.querySelectorAll('.quiz-option').forEach(o => {
+      o.classList.remove('correct', 'wrong');
+    });
+    
+    if (isCorrect) {
+      option.classList.add('correct');
+    } else {
+      option.classList.add('wrong');
+      parent.querySelectorAll('.quiz-option').forEach(o => {
+        if (o.getAttribute('onclick').includes('true')) {
+          o.classList.add('correct');
+        }
+      });
+    }
+  }
+  
+  function regenerateAll() {
+    document.querySelectorAll('.quiz[data-tense]').forEach(quiz => {
+      quiz.classList.remove('show');
+      const btn = quiz.previousElementSibling;
+      if (btn && btn.classList.contains('quiz-btn')) {
+        btn.textContent = 'Проверить себя (3 теста)';
+      }
+    });
+    
+    renderAllQuizzes();
+    
+    document.querySelectorAll('.quiz').forEach(q => {
+      q.style.animation = 'none';
+      setTimeout(() => {
+        q.style.animation = 'slideDown 0.4s ease';
+      }, 10);
+    });
+  }
+  
+  /* ============ ОБЩИЙ ТЕСТ ============ */
+  
+  let finalQuestions = [];
+  let finalAnswered = 0;
+  let finalCorrect = 0;
+  
+  function generateFinalTest() {
+    const allTenses = ['presentSimple', 'presentContinuous', 'pastSimple', 'presentPerfect'];
+    const questions = [];
+    
+    allTenses.forEach(t => {
+      const bank = questionBank[t];
+      const random = bank[Math.floor(Math.random() * bank.length)];
+      questions.push({ ...random, tense: t });
+    });
+    
+    const usedKeys = new Set(questions.map(q => q.q));
+    let extra = null;
+    let attempts = 0;
+    while (!extra && attempts < 50) {
+      const t = allTenses[Math.floor(Math.random() * allTenses.length)];
+      const bank = questionBank[t];
+      const candidate = bank[Math.floor(Math.random() * bank.length)];
+      if (!usedKeys.has(candidate.q)) {
+        extra = { ...candidate, tense: t };
+      }
+      attempts++;
+    }
+    if (extra) questions.push(extra);
+    
+    return shuffle(questions);
+  }
+  
+  function startFinalTest() {
+    finalQuestions = generateFinalTest();
+    finalAnswered = 0;
+    finalCorrect = 0;
+    
+    const container = document.getElementById('finalQuestions');
+    const wrap = document.getElementById('finalWrap');
+    const resultBox = document.getElementById('resultBox');
+    const startBtn = document.getElementById('startFinalBtn');
+    const progress = document.querySelector('.final-progress');
+    
+    resultBox.classList.remove('show');
+    wrap.classList.add('show');
+    startBtn.style.display = 'none';
+    progress.style.display = 'block';
+    
+    container.innerHTML = finalQuestions.map((item, i) => {
+      const shuffledOptions = shuffle(item.options);
+      const optionsHtml = shuffledOptions.map(opt => {
+        const isCorrect = opt === item.correct;
+        return `<button class="final-option" data-q="${i}" data-correct="${isCorrect}" onclick="answerFinal(this, ${i}, ${isCorrect})">${escapeHtml(opt)}</button>`;
+      }).join('');
+      
+      return `
+        <div class="final-question" data-qblock="${i}">
+          <span class="q-num">${i + 1}</span>
+          <span class="q-text">${escapeHtml(item.q)}</span>
+          <div class="final-options">${optionsHtml}</div>
+          <div class="explanation-slot" id="explainSlot-${i}"></div>
+        </div>
+      `;
+    }).join('');
+    
+    updateProgress();
+  }
+  
+  function answerFinal(btn, qIndex, isCorrect) {
+    const block = btn.closest('.final-question');
+    
+    if (block.dataset.answered === 'true') return;
+    block.dataset.answered = 'true';
+    
+    block.querySelectorAll('.final-option').forEach(o => {
+      o.classList.add('locked');
+      if (o.dataset.correct === 'true') {
+        o.classList.add('correct');
+      }
+    });
+    
+    if (isCorrect) {
+      finalCorrect++;
+    } else {
+      btn.classList.add('wrong');
+      block.classList.add('wrong-question');
+      
+      const item = finalQuestions[qIndex];
+      if (item.explanation) {
+        const slot = document.getElementById(`explainSlot-${qIndex}`);
+        if (slot) {
+          slot.innerHTML = `
+            <button class="explain-btn" id="explainBtn-${qIndex}" onclick="toggleExplanation(${qIndex})">
+              💡 Объяснение
+            </button>
+            <div class="explanation-box" id="explainBox-${qIndex}" style="display:none;">
+              <div class="exp-title">
+                <span class="icon">📖</span> Разбор правила
+              </div>
+              <div class="exp-line">
+                <span class="label why">Почему</span>
+                <span class="content">${item.explanation.why}</span>
+              </div>
+              <div class="exp-line">
+                <span class="label good">Верно</span>
+                <span class="content">${item.explanation.right}</span>
+              </div>
+              <div class="exp-line">
+                <span class="label bad">Ошибки</span>
+                <span class="content">${item.explanation.wrong}</span>
+              </div>
+            </div>
+          `;
+        }
+      }
+    }
+    
+    finalAnswered++;
+    updateProgress();
+    
+    if (finalAnswered === finalQuestions.length) {
+      setTimeout(showResult, 700);
+    }
+  }
+  
+  function toggleExplanation(qIndex) {
+    const box = document.getElementById(`explainBox-${qIndex}`);
+    const btn = document.getElementById(`explainBtn-${qIndex}`);
+    if (!box || !btn) return;
+    
+    if (box.style.display === 'none' || !box.style.display) {
+      box.style.display = 'block';
+      btn.innerHTML = '🙈 Скрыть объяснение';
+    } else {
+      box.style.display = 'none';
+      btn.innerHTML = '💡 Объяснение';
+    }
+  }
+  
+  function updateProgress() {
+    document.getElementById('answeredCount').textContent = finalAnswered;
+    const pct = (finalAnswered / finalQuestions.length) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+  }
+  
+  function showResult() {
+    const resultBox = document.getElementById('resultBox');
+    const gradeEl = document.getElementById('resultGrade');
+    const scoreEl = document.getElementById('resultScore');
+    const msgEl = document.getElementById('resultMessage');
+    const startBtn = document.getElementById('startFinalBtn');
+    const progress = document.querySelector('.final-progress');
+    
+    let grade, message, gradeClass;
+    
+    if (finalCorrect === 5) {
+      grade = '5'; message = '🎉 Идеально! Ты знаешь времена на отлично!'; gradeClass = 'grade-5';
+    } else if (finalCorrect === 4) {
+      grade = '4'; message = '👏 Хорошо! Совсем немного до идеала.'; gradeClass = 'grade-4';
+    } else if (finalCorrect === 3) {
+      grade = '3'; message = '👍 Неплохо, но стоит повторить материал.'; gradeClass = 'grade-3';
+    } else {
+      grade = '2'; message = '📚 Попробуй ещё раз — повтори правила выше.'; gradeClass = 'grade-2';
+    }
+    
+    gradeEl.textContent = grade;
+    scoreEl.textContent = `${finalCorrect} / ${finalQuestions.length} правильных`;
+    msgEl.textContent = message;
+    
+    resultBox.classList.remove('grade-5', 'grade-4', 'grade-3', 'grade-2');
+    resultBox.classList.add(gradeClass);
+    resultBox.classList.add('show');
+    
+    startBtn.style.display = 'none';
+    progress.style.display = 'none';
+    
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  
+  /* ============ ИНИЦИАЛИЗАЦИЯ ============ */
+  
+  renderAllQuizzes();
+  
+  /* ============ 4D-ЭФФЕКТЫ (только на устройствах с мышью) ============ */
+  
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -3;
+        const rotateY = ((x - centerX) / centerX) * 3;
+        
+        card.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+  
+  /* Параллакс звёзд и ORB при скролле */
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        document.querySelectorAll('.orb').forEach((orb, i) => {
+          const speed = (i + 1) * 0.15;
+          orb.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+        
+        const starsBg = document.getElementById('starsBg');
+        if (starsBg) {
+          starsBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+        
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  
+  /* Перегенерация звёзд при изменении размера окна */
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      // Ничего не делаем — звёзды уже растянуты через %
+    }, 200);
+  });
+</script>
+
+</body>
+</html>
